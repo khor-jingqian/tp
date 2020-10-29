@@ -47,7 +47,6 @@ public class ExerciseCard extends UiPart<Region> {
     public ExerciseCard(Exercise exercise, int displayedIndex) {
         super(FXML);
         this.exercise = exercise;
-        System.out.println("exercisecard");
         id.setText(displayedIndex + ". ");
         name.setText(exercise.getName().fullName);
         exercise.getTags().stream()

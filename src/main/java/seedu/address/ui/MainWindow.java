@@ -120,12 +120,6 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        //        exerciseListPanel = new ExerciseListPanel(logic.getFilteredExerciseList());
-        //        exerciseListPanelPlaceholder.getChildren().add(exerciseListPanel.getRoot());
-        //
-        //        lessonListPanel = new LessonListPanel(logic.getFilteredLessonList());
-        //        lessonListPanelPlaceholder.getChildren().add(lessonListPanel.getRoot());
-
         homePanel = new HomePanel(logic);
         homeContentPlaceholder.getChildren().add(homePanel.getRoot());
 
@@ -140,12 +134,6 @@ public class MainWindow extends UiPart<Stage> {
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
-
-        //        routineListPanelPlaceholder.setBackground
-        //        (new Background(new BackgroundFill(Color.YELLOW, CornerRadii.EMPTY,
-        //                Insets.EMPTY)));
-        //        routineListPanel = new RoutineListPanel(logic.getFilteredRoutineList());
-        //        routineListPanelPlaceholder.getChildren().add(routineListPanel.getRoot());
 
         tabPanePlaceHolder.setMinWidth(530);
         tabPanePlaceHolder.setMinHeight(50);

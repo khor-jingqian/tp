@@ -49,7 +49,6 @@ public class HomePanel extends UiPart<Region> {
 
         this.logic = logic;
 
-        System.out.println("homepanel");
         exerciseListPanel = new ExerciseListPanel(logic.getFilteredExerciseList());
         exerciseListPanelPlaceholder.getChildren().add(exerciseListPanel.getRoot());
 

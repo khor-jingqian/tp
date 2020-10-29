@@ -15,9 +15,9 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 
-<fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" title="FitNUS" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root minHeight="600" minWidth="450" onCloseRequest="#handleExit" title="fitNUS" type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
   <icons>
-    <Image url="@/images/address_book_32.png" />
+    <Image url="@/images/fitnus.png" />
   </icons>
   <scene>
     <Scene>
@@ -36,7 +36,7 @@
           </Menu>
         </MenuBar>
 
-        <HBox fx:id="tabsContainer" VBox.vgrow="ALWAYS" >
+        <HBox fx:id="tabsContainer" VBox.vgrow="ALWAYS" id="tabsContainer" >
           <VBox id="tabsVBox" HBox.hgrow="ALWAYS">
             <TabPane fx:id="tabPanePlaceHolder"
                      VBox.vgrow="ALWAYS"

@@ -4,7 +4,7 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 
-<LineChart fx:id="graph" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<LineChart fx:id="graph" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" id="graph">
    <xAxis >
       <CategoryAxis fx:id="xAxis" side="BOTTOM" />
    </xAxis>
