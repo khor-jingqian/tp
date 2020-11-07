@@ -68,7 +68,7 @@ class JsonSerializableFitNus {
         slots.addAll(source.getSlotList().stream().map(JsonAdaptedSlot::new).collect(Collectors.toList()));
         dailyCalories.addAll(source.getDailyCalorieList().stream().map(JsonAdaptedDailyCalorie::new)
                 .collect(Collectors.toList()));
-        body = source.getBody().stream().map(JsonAdaptedBody::new).collect(Collectors.toList()).get(0);
+        body = new JsonAdaptedBody(source.getBody());
     }
 
     /**

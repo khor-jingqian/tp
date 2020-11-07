@@ -54,7 +54,7 @@ public interface Logic {
     ObservableList<DailyCalorie> getFilteredDailyCalorie();
 
     /** Returns an unmodifiable view of the filtered list of body */
-    ObservableList<Body> getFilteredBody();
+    Body getFilteredBody();
 
     /**
      * Returns the user prefs' fitNUS file path.

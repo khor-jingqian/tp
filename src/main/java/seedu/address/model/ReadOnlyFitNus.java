@@ -1,5 +1,6 @@
 package seedu.address.model;
 
+import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import seedu.address.model.calorie.DailyCalorie;
 import seedu.address.model.exercise.Exercise;
@@ -47,5 +48,5 @@ public interface ReadOnlyFitNus {
      * Returns an unmodifiable view of the Body.
      * This list will not contain any duplicate Body.
      */
-    ObservableList<Body> getBody();
+    Body getBody();
 }

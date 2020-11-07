@@ -113,7 +113,7 @@ public interface Model {
     /**
      * Returns an unmodifiable view of the filtered body list
      */
-    ObservableList<Body> getFilteredBody();
+    Body getFilteredBody();
 
     /**
      * Updates the filter of the filtered calorie log to filter by the given {@code predicate}.

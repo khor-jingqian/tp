@@ -36,7 +36,7 @@ public class ModelManager implements Model {
     private final FilteredList<Lesson> filteredLessons;
     private final FilteredList<Slot> filteredSlots;
     private final FilteredList<DailyCalorie> filteredDailyCalories;
-    private final FilteredList<Body> filteredBody;
+    private final Body filteredBody;
 
     /**
      * Initializes a ModelManager with the given fitNus and userPrefs.
@@ -54,7 +54,7 @@ public class ModelManager implements Model {
         filteredLessons = new FilteredList<>(this.fitNus.getLessonList());
         filteredSlots = new FilteredList<>(this.fitNus.getSlotList());
         filteredDailyCalories = new FilteredList<>(this.fitNus.getDailyCalorieList());
-        filteredBody = new FilteredList<>(this.fitNus.getBody());
+        filteredBody = this.fitNus.getBody();
     }
 
     public ModelManager() {
@@ -301,7 +301,7 @@ public class ModelManager implements Model {
      * {@code versionedFitNus}
      */
     @Override
-    public ObservableList<Body> getFilteredBody() {
+    public Body getFilteredBody() {
         return filteredBody;
     }
 

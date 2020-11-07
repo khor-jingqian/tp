@@ -2,6 +2,7 @@ package seedu.address.ui;
 
 import java.util.logging.Logger;
 
+import javafx.beans.value.ChangeListener;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -16,7 +17,7 @@ public class BmiBox extends UiPart<Region> {
 
     private final Logger logger = LogsCenter.getLogger(CalorieGraph.class);
 
-    private ObservableList<Body> body;
+    private Body body;
 
     // Independent Ui parts residing in this Ui container
 
@@ -28,23 +29,23 @@ public class BmiBox extends UiPart<Region> {
      *
      * @param body
      */
-    public BmiBox(ObservableList<Body> body) {
+    public BmiBox(Body body) {
         super(FXML);
         this.body = body;
-        Body observedBody = body.get(0);
+        Body observedBody = this.body;
         String text = "BMI Metrics: \n\n"
                 + "Height: " + observedBody.getHeight().toString() + "\n\n"
                 + "Weight: " + observedBody.getWeight().toString() + "\n\n"
                 + "BMI: " + String.format("%.2f", observedBody.getBmi());
         bmi2.setText(text);
 
-        body.addListener((ListChangeListener<Body>) change -> {
+        body.addListener((ChangeListener<Body>) (observableValue, oldValue, newValue) -> {
             update();
         });
     }
 
     private void update() {
-        Body observedBody = body.get(0);
+        Body observedBody = body;
         String text = "BMI Metrics: \n\n"
                 + "Height: " + observedBody.getHeight().toString() + "\n\n"
                 + "Weight: " + observedBody.getWeight().toString() + "\n\n"

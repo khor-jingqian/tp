@@ -4,6 +4,7 @@ import static java.util.Objects.requireNonNull;
 
 import java.util.List;
 
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import seedu.address.model.calorie.CalorieLog;
@@ -31,7 +32,7 @@ public class FitNus implements ReadOnlyFitNus {
     private final UniqueLessonList lessons;
     private final Timetable timetable;
     private final CalorieLog calorieLog;
-    private final ObservableList<Body> body;
+    private Body body;
 
     /*
      * The 'unusual' code block below is a non-static initialization block, sometimes used to avoid duplication
@@ -46,7 +47,7 @@ public class FitNus implements ReadOnlyFitNus {
         lessons = new UniqueLessonList();
         timetable = new Timetable();
         calorieLog = new CalorieLog();
-        body = FXCollections.observableArrayList(new Body());
+        body = new Body();
     }
 
     public FitNus() {
@@ -66,25 +67,23 @@ public class FitNus implements ReadOnlyFitNus {
      * Adds the height of the user to fitNUS.
      */
     public void addHeight(Height height) {
-        Body newBody = this.body.get(0);
+        Body newBody = this.body;
         newBody.setHeight(height);
-        body.set(0, newBody);
     }
 
     /**
      * Adds the weight of the user to fitNUS.
      */
     public void addWeight(Weight weight) {
-        Body newBody = this.body.get(0);
+        Body newBody = this.body;
         newBody.setWeight(weight);
-        body.set(0, newBody);
     }
 
     /**
      * Returns the height of the user.
      */
     public Height getHeight() {
-        Body newBody = this.body.get(0);
+        Body newBody = this.body;
         return newBody.getHeight();
     }
 
@@ -92,7 +91,7 @@ public class FitNus implements ReadOnlyFitNus {
      * Returns the weight of the user.
      */
     public Weight getWeight() {
-        Body newBody = this.body.get(0);
+        Body newBody = this.body;
         return newBody.getWeight();
     }
 
@@ -100,7 +99,7 @@ public class FitNus implements ReadOnlyFitNus {
      * Returns the BMI of the user.
      */
     public double getBmi() {
-        Body newBody = body.get(0);
+        Body newBody = body;
         return newBody.getBmi();
     }
 
@@ -156,9 +155,10 @@ public class FitNus implements ReadOnlyFitNus {
         setRoutines(newData.getRoutineList());
         setSlots(newData.getSlotList());
         addCalorieEntries(newData.getDailyCalorieList());
-        Body newBody = newData.getBody().get(0);
-        addHeight(newBody.getHeight());
-        addWeight(newBody.getWeight());
+        this.body = newData.getBody();
+//        Body newBody = newData.getBody().get(0);
+//        addHeight(newBody.getHeight());
+//        addWeight(newBody.getWeight());
     }
 
     //// person-level operations
@@ -416,9 +416,9 @@ public class FitNus implements ReadOnlyFitNus {
     }
 
     @Override
-    public ObservableList<Body> getBody() {
-        ObservableList<Body> unmodifiableBody = FXCollections.unmodifiableObservableList(body);
-        return unmodifiableBody;
+    public Body getBody() {
+//        ObservableList<Body> unmodifiableBody = FXCollections.unmodifiableObservableList(body);
+        return this.body;
     }
 
     @Override

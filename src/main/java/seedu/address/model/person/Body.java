@@ -1,10 +1,17 @@
 package seedu.address.model.person;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableObjectValue;
+import javafx.beans.value.ObservableValue;
+
 import static java.util.Objects.requireNonNull;
 
+import java.util.EventListener;
 import java.util.Objects;
 
-public class Body {
+public class Body implements ObservableObjectValue {
 
     private Height height;
     private Weight weight;
@@ -87,4 +94,33 @@ public class Body {
         return weight.getWeight() / Math.pow((height.getHeight() / 100.0), 2);
     }
 
+    @Override
+    public void addListener(InvalidationListener invalidationListener) {
+
+    }
+
+    @Override
+    public void removeListener(InvalidationListener invalidationListener) {
+
+    }
+
+    @Override
+    public Object get() {
+        return null;
+    }
+
+    @Override
+    public void addListener(ChangeListener changeListener) {
+
+    }
+
+    @Override
+    public void removeListener(ChangeListener changeListener) {
+
+    }
+
+    @Override
+    public Object getValue() {
+        return null;
+    }
 }

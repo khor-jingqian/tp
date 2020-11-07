@@ -110,7 +110,7 @@ public class LogicManager implements Logic {
     }
 
     @Override
-    public ObservableList<Body> getFilteredBody() {
+    public Body getFilteredBody() {
         return model.getFilteredBody();
     }
 }
