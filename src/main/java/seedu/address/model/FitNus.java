@@ -417,8 +417,12 @@ public class FitNus implements ReadOnlyFitNus {
 
     @Override
     public Body getBody() {
-//        ObservableList<Body> unmodifiableBody = FXCollections.unmodifiableObservableList(body);
-        return this.body;
+        Body bodyCopy = new Body();
+        Height heightCopy = this.body.getHeight();
+        Weight weightCopy = this.body.getWeight();
+        bodyCopy.setHeight(heightCopy);
+        bodyCopy.setWeight(weightCopy);
+        return bodyCopy;
     }
 
     @Override

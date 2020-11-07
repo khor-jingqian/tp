@@ -1,20 +1,19 @@
 package seedu.address.model.person;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableObjectValue;
-import javafx.beans.value.ObservableValue;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 
 import static java.util.Objects.requireNonNull;
 
-import java.util.EventListener;
 import java.util.Objects;
 
-public class Body implements ObservableObjectValue {
+public class Body {
 
     private Height height;
     private Weight weight;
+
+    private ObjectProperty<Height> observedHeight;
+    private ObjectProperty<Weight> observedWeight;
 
     /**
      * Creates a Body object.
@@ -22,6 +21,9 @@ public class Body implements ObservableObjectValue {
     public Body() {
         this.height = new Height(160);
         this.weight = new Weight(45);
+
+        this.observedHeight = new SimpleObjectProperty<>(new Height(160));
+        this.observedWeight = new SimpleObjectProperty<>(new Weight(45));
     }
 
     /**
@@ -30,6 +32,7 @@ public class Body implements ObservableObjectValue {
     public void setHeight(Height h) {
         requireNonNull(h);
         this.height = h;
+        this.observedHeight.setValue(h);
     }
 
     /**
@@ -38,6 +41,7 @@ public class Body implements ObservableObjectValue {
     public void setWeight(Weight w) {
         requireNonNull(w);
         this.weight = w;
+        this.observedWeight.setValue(w);
     }
 
     /**
@@ -94,33 +98,12 @@ public class Body implements ObservableObjectValue {
         return weight.getWeight() / Math.pow((height.getHeight() / 100.0), 2);
     }
 
-    @Override
-    public void addListener(InvalidationListener invalidationListener) {
-
+    public ObjectProperty<Height> getObservedHeight() {
+        return this.observedHeight;
     }
 
-    @Override
-    public void removeListener(InvalidationListener invalidationListener) {
-
+    public ObjectProperty<Weight> getObservedWeight() {
+        return this.observedWeight;
     }
 
-    @Override
-    public Object get() {
-        return null;
-    }
-
-    @Override
-    public void addListener(ChangeListener changeListener) {
-
-    }
-
-    @Override
-    public void removeListener(ChangeListener changeListener) {
-
-    }
-
-    @Override
-    public Object getValue() {
-        return null;
-    }
 }
